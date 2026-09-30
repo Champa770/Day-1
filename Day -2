@@ -1,0 +1,128 @@
+# day 2
+
+## Text Elements, Lists & Links
+
+**Text formatting elements**
+Beyond `<p>` and `<h1>`–`<h6>`, HTML has inline tags for emphasizing or marking up text within a block.
+
+```html
+<strong>Important text</strong>   <!-- bold, semantic importance -->
+<em>Emphasized text</em>          <!-- italic, semantic emphasis -->
+<b>Bold text</b>                  <!-- bold, no semantic meaning -->
+<i>Italic text</i>                <!-- italic, no semantic meaning -->
+<small>Fine print</small>
+<mark>Highlighted text</mark>
+<del>Deleted/strikethrough text</del>
+<sub>Subscript</sub> and <sup>Superscript</sup>
+```
+
+**`<strong>`/`<em>` vs `<b>`/`<i>**<strong>` and `<em>` carry meaning (screen readers announce them differently, search engines weigh them). `<b>` and `<i>` are purely visual — same look, no meaning. Prefer `<strong>`/`<em>` unless it's genuinely just styling.
+
+**Line breaks and horizontal rules**
+
+```html
+<p>Line one<br>Line two</p>
+<hr>
+```
+
+`<br>` = line break inside text. `<hr>` = a horizontal divider between sections. Both are void elements (no closing tag).
+
+**Lists**
+
+Unordered list (bullets):
+
+```html
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+```
+
+Ordered list (numbered):
+
+```html
+<ol>
+  <li>Wake up</li>
+  <li>Learn HTML</li>
+  <li>Build a website</li>
+</ol>
+```
+
+Nested list:
+
+```html
+<ul>
+  <li>Frontend
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+    </ul>
+  </li>
+  <li>Backend</li>
+</ul>
+```
+
+Description list (less common, but useful — term + definition pairs):
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>Markup language for structuring web pages</dd>
+</dl>
+```
+
+**Links — the `<a>` tag**
+
+```html
+<a href="https://google.com">Go to Google</a>
+```
+
+`href` = the destination URL. This is required for the link to work.
+
+Opening in a new tab:
+
+```html
+<a href="https://google.com" target="_blank">Google</a>
+```
+
+`target="_blank"` opens in a new tab. Without it, the link replaces the current page.
+
+Linking to another page in the same project:
+
+```html
+<a href="about.html">About Us</a>
+```
+
+Relative path — no domain needed if the file is in the same folder.
+
+Linking to a section on the same page (using `id`):
+
+```html
+<h2 id="contact">Contact</h2>
+...
+<a href="#contact">Jump to Contact</a>
+```
+
+Email and phone links:
+
+```html
+<a href="mailto:someone@example.com">Email us</a>
+<a href="tel:+911234567890">Call us</a>
+```
+
+**Common mistakes**
+
+- Forgetting `https://` in external links — browser may treat it as a relative path and fail
+- Using `<b>` when they mean "this is important" — should use `<strong>`
+- Nesting `<li>` directly under `<div>` instead of `<ul>`/`<ol>` — invalid structure
+- Broken anchor links because the `id` doesn't match the `href="#..."` exactly (case-sensitive)
+
+**Small practice task**
+Build a simple "About Me" section with:
+
+- A paragraph using `<strong>` and `<em>` somewhere
+- An unordered list of 3 skills
+- An ordered list of 3 goals
+- A link to any external site (opening in a new tab)
+- A link that jumps to a section further down the same page
